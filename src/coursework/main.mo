@@ -61,25 +61,25 @@ actor Challange{
     public query func selection_sort(arr : [Nat]) : async [Nat] {
       // chuyen tu mutable sang imutable
       let newArr : [var Nat] = Array.thaw(arr);
-    var i : Nat = 0;
-    var temp : Nat = 0;
-    var n : Nat = newArr.size();
-    while(i < n) {
-      var i_temp = i;
-      var j = i + 1;
-      while(j < n) {
-        if(newArr[j] < newArr[i_temp]) {
-          i_temp := j;
-        };
+      var i : Nat = 0;
+      var temp : Nat = 0;
+      var n : Nat = newArr.size();
+      while(i < n) {
+        var i_temp = i;
+        var j = i + 1;
+        while(j < n) {
+          if(newArr[j] < newArr[i_temp]) {
+            i_temp := j;
+          };
         j := j + 1;
-      };
+        };
       // swapping 
-      temp := newArr[i_temp];
-      newArr[i_temp] := newArr[i];
-      newArr[i] := temp;
-      i := i + 1;
-    };
+        temp := newArr[i_temp];
+        newArr[i_temp] := newArr[i];
+        newArr[i] := temp;
+        i := i + 1;
+      };
     // chuyen ve lai tu imutable sang mutable
-    return Array.freeze(newArr);
-    }
+      return Array.freeze(newArr);
+    };
 };
